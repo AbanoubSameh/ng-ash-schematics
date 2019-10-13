@@ -1,6 +1,6 @@
 {
   "name": "@ng-ash/schematics",
-  "version": "1.0.1",
+  "version": "1.0.2",
   "description": "Custom schematics for Enterprise Angular 6+ Applications",
   "scripts": {
     "build": "tsc -p tsconfig.json",
