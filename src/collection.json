@@ -1,0 +1,53 @@
+{
+  "$schema": "../node_modules/@angular-devkit/schematics/collection-schema.json",
+  "extends":[
+    "@schematics/angular"
+  ],
+  "schematics": {
+    "ng-add": {
+      "description": "Generate Enterprise Project Template.",
+      "factory": "./ng-add/index#ngAdd",
+      "schema": "./ng-add/schema.json",
+      "aliases": ["ash","init"]
+    },
+    "ngrx-store": {
+      "description": "Generate Initial Structure for NGRX Store.",
+      "factory": "./ngrx-store/index#ngrxStore",
+      "schema": "./ngrx-store/schema.json",
+      "aliases": ["ngrx"]
+    },
+    "feature-store": {
+      "description": "Generate NGRX Feature",
+      "factory": "./feature-store/index#ngrxFeature",
+      "schema": "./feature-store/schema.json"
+    },
+    "feature-module": {
+      "description": "Generate Module feature under UI-modules",
+      "factory": "./feature-module/index#moduleFeature",
+      "schema": "./feature-module/schema.json"
+    },
+    "feature": {
+      "description": "Generate Feature Module",
+      "factory": "./feature/index#feature",
+      "schema": "./feature/schema.json"
+
+    },
+    "mock": {
+      "description": "Configure project to use mocking using json-server",
+      "factory": "./mock/index#mock",
+      "schema": "./mock/schema.json",
+      "aliases": ["m"]
+    },
+    "service": {
+      "description": "Generate Angular service with optional CRUD Operations",
+      "factory": "./service/index#service",
+      "schema": "./service/schema.json",
+      "aliases": ["s"]
+    },
+    "post-build-environment": {
+      "description": "Generate post build environment configuration.",
+      "factory": "./post-build-environment/index#postBuildEnvironment",
+      "schema": "./post-build-environment/schema.json"
+    }
+  }
+}

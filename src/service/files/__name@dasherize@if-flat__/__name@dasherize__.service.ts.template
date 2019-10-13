@@ -1,0 +1,42 @@
+import { Injectable } from '@angular/core';
+<% if (CRUD) { %>
+import { environment } from 'src/environments/environment';
+import { HttpClient } from '@angular/common/http';
+import { Observable } from 'rxjs';
+<% } %>
+@Injectable({
+  providedIn: 'root'
+})
+export class <%= classify(name) %>Service {
+ <% if (CRUD) { %> private baseUrl = environment.apiUrl <% } %>
+  constructor(
+<% if (CRUD) { %>    private http: HttpClient <% } %>
+  ) { }
+<% if (CRUD) { %>
+// GET ALL
+  getAll(): Observable<any[]> {
+    return this.http.get<any>(`${this.baseUrl}/<%= camelize(name) %>`);
+  }
+
+  // GET BY ID
+  getByID(id:any): Observable<any> {
+    return this.http.get<any>(`${this.baseUrl}/<%= camelize(name) %>/${id}`);
+  }
+
+  // CREATE
+  create(objToCreate: any): Observable<any> {
+    return this.http.post<any>(`${this.baseUrl}/<%= camelize(name) %>`, objToCreate);
+  }
+
+  // UPDATE
+  update(objToUpdate: any): Observable<any> {
+    return this.http.patch<any>(`${this.baseUrl}/<%= camelize(name) %>/${objToUpdate.id}`, objToUpdate);
+  }
+
+  // DELETE 
+  delete(id:any): Observable<any> {
+    return this.http.delete<any>(`${this.baseUrl}/<%= camelize(name) %>/${id}`);
+  }
+
+<% } %>
+}

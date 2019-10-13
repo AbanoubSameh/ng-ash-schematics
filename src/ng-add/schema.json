@@ -1,0 +1,65 @@
+{
+  "$schema": "http://json-schema.org/schema",
+  "id": "ProjectTemplateSchema",
+  "title": "Takes a new angular application and add an enterprise template.",
+  "type": "object",
+  "properties": {
+    "project": {
+      "type": "string",
+      "description": "The name of the project.",
+      "$default": {
+        "$source": "projectName"
+      }
+    },
+    "path": {
+      "type": "string",
+      "format": "path",
+      "description": "The path to create the interface.",
+      "visible": false
+    },
+    "name": {
+      "type": "string",
+      "description": "Empty name.",
+      "visible": false,
+      "default": ""
+    },
+    "mock": {
+      "type": "boolean",
+      "default": false,
+      "x-prompt":"mock setup?"
+    },
+    "ngrx": {
+      "type": "boolean",
+      "description": "",
+      "visible": false,
+      "default": false,
+      "x-prompt":"NGRX for state mangement?"
+    },
+    "routing": {
+      "type": "boolean",
+      "default": false
+    },
+    "postBuildEnv": {
+      "type": "boolean",
+      "description": "",
+      "visible": false,
+      "default": false,
+      "x-prompt":"post build environment setup?"
+    },
+    "feature": {
+      "type": "boolean",
+      "default": false,
+      "x-prompt":"Initial feature?"
+    },
+    "shortName": {
+      "type": "string",
+      "x-prompt":"app short name? ex: orsm, con, mmsc"
+    },
+    "baseHrefasShortName": {
+      "type": "boolean",
+      "default": false,
+      "x-prompt":"configure short name as base href?"
+    }
+  },
+  "required": []
+}
